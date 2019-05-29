@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import requests
+
+API_KEY = "72db2e055e1011809d6ec5b0a7785817"
+CITY = 6324729
+
+
+def get_data():
+    url = "http://api.openweathermap.org/data/2.5/forecast?id={}&appid={}".format(CITY, API_KEY)
+    response = requests.get(url)
+    return response.json()
+
+
+def main():
+    print("hello main")
+    get_data()
+
+
+if __name__ == "__main__":
+    main()
