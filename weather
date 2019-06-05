@@ -6,6 +6,13 @@ API_KEY = "72db2e055e1011809d6ec5b0a7785817"
 CITY = 6324729
 
 
+def to_c(temp):
+    return round(
+        temp - 273.15,
+        1
+    )
+
+
 def get_data():
     url = "http://api.openweathermap.org/data/2.5/forecast?id={}&appid={}".format(CITY, API_KEY)
     response = requests.get(url)
@@ -13,8 +20,14 @@ def get_data():
 
 
 def main():
-    print("hello main")
-    get_data()
+    data = get_data()
+
+    for thing in data['list']:
+        print(thing['dt_txt'])
+        temp = thing['main']['temp']
+        temp_in_c = to_c(temp)
+        print('  temp:', temp_in_c)
+        print('')
 
 
 if __name__ == "__main__":
