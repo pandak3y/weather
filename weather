@@ -6,6 +6,12 @@ API_KEY = "72db2e055e1011809d6ec5b0a7785817"
 CITY = 6324729
 
 
+BANNER = """/---------------------/
+/ (: 8<D 8<D 8<D :)   /
+/ Welcome to WEATHER /
+/___________________/"""
+
+
 def to_c(temp):
     return round(
         temp - 273.15,
@@ -20,6 +26,7 @@ def get_data():
 
 
 def main():
+    print(BANNER)
     data = get_data()
 
     for thing in data['list']:
