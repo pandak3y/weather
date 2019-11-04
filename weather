@@ -2,7 +2,7 @@
 
 import requests
 
-API_KEY = "72db2e055e1011809d6ec5b0a7785817"
+API_KEY = ""
 CITY = 6324729
 
 
