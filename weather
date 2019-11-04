@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import requests
+import os
 
-API_KEY = ""
+API_KEY = os.environ.get("WEATHER_API_KEY")
 CITY = 6324729
 
 
@@ -27,6 +28,11 @@ def get_data():
 
 def main():
     print(BANNER)
+
+    if not API_KEY:
+        print("We couldn't get your Key")
+        return
+
     data = get_data()
 
     for thing in data['list']:
