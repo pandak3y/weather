@@ -23,6 +23,8 @@ def to_c(temp):
 def get_data():
     url = "http://api.openweathermap.org/data/2.5/forecast?id={}&appid={}".format(CITY, API_KEY)
     response = requests.get(url)
+    if response.status_code != 200:
+        return
     return response.json()
 
 
@@ -34,6 +36,10 @@ def main():
         return
 
     data = get_data()
+
+    if not data:
+        print("Something went wrong.")
+        return
 
     for thing in data['list']:
         print(thing['dt_txt'])
