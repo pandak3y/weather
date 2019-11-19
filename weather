@@ -4,7 +4,7 @@ import requests
 import os
 
 API_KEY = os.environ.get("WEATHER_API_KEY")
-CITY = 6324729
+CITY = os.environ.get("WEATHER_CITY_CODE", 6324729)  # Defaults to Halifax
 
 
 BANNER = """/---------------------/
