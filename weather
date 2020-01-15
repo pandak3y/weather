@@ -42,11 +42,9 @@ def main():
         return
 
     for thing in data['list']:
-        print(thing['dt_txt'])
         temp = thing['main']['temp']
         temp_in_c = to_c(temp)
-        print('  temp:', temp_in_c)
-        print('')
+        print(thing['dt_txt'], temp_in_c, "C")
 
 
 if __name__ == "__main__":
