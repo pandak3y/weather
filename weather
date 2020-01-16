@@ -12,6 +12,10 @@ BANNER = """/---------------------/
 / Welcome to WEATHER /
 /___________________/"""
 
+SNOW = '☃️'
+CLOUD = '☁️'
+SUN = '🏖️'
+
 
 def to_c(temp):
     return round(
@@ -44,7 +48,17 @@ def main():
     for thing in data['list']:
         temp = thing['main']['temp']
         temp_in_c = to_c(temp)
-        print(thing['dt_txt'], temp_in_c, "C")
+
+        emoji = None
+
+        if temp_in_c < 0:
+            emoji = SNOW
+        elif temp_in_c < 15:
+            emoji = CLOUD
+        else:
+            emoji = SUN
+
+        print(thing['dt_txt'], temp_in_c, "C", emoji)
 
 
 if __name__ == "__main__":
